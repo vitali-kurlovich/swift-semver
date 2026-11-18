@@ -67,7 +67,7 @@ struct PreReleaseTests {
               (PreRelease("alpha"), PreRelease("beta")),
               (PreRelease("alpha.9"), PreRelease("alpha.123"))
           ])
-    func compare(_ args: (PreRelease, PreRelease)) throws {
+    func compare(_ args: (PreRelease, PreRelease)) {
         #expect(args.0 < args.1)
         #expect(args.1 > args.0)
     }

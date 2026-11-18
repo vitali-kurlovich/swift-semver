@@ -4,20 +4,20 @@
 
 import Foundation
 
-public extension AttributeScopes {
+public nonisolated extension AttributeScopes {
     var semanticVersioning: AttributeScopes.SemanticVersioningAttributes.Type {
         SemanticVersioningAttributes.self
     }
 
     /// A type for using a ``Version`` format as an attribute.
-    struct SemanticVersioningAttributes: AttributeScope {
+    nonisolated struct SemanticVersioningAttributes: AttributeScope, Sendable {
         public let semantic: Self.SemanticVersionAttribute
 
         public let versionPart: Self.CoreVersionPartAttribute
         public let preReleasePart: Self.PreReleasePartAttribute
         public let metadataPart: Self.MetadataPartAttribute
 
-        public enum SemanticVersionAttribute: CodableAttributedStringKey {
+        public nonisolated enum SemanticVersionAttribute: CodableAttributedStringKey, Sendable {
             public enum SemanticVersion: Int, Codable, Sendable {
                 case semanticVersion
             }
@@ -27,7 +27,7 @@ public extension AttributeScopes {
             public typealias Value = Self.SemanticVersion
         }
 
-        public enum CoreVersionPartAttribute: CodableAttributedStringKey {
+        public nonisolated enum CoreVersionPartAttribute: CodableAttributedStringKey, Sendable {
             public enum CoreVersionPart: Int, Codable, Sendable {
                 case major
                 case minor
@@ -40,24 +40,24 @@ public extension AttributeScopes {
             public typealias Value = Self.CoreVersionPart
         }
 
-        public enum PreReleasePartAttribute: CodableAttributedStringKey {
-            public enum PreReleasePart: Int, Codable, Sendable {
+        public nonisolated enum PreReleasePartAttribute: CodableAttributedStringKey, Sendable {
+            public nonisolated enum PreReleasePart: Int, Codable, Sendable {
                 case preRelease
                 case groupSeparator
             }
 
-            public static let name: String = "semver.release"
+            public nonisolated static let name: String = "semver.release"
 
             public typealias Value = Self.PreReleasePart
         }
 
-        public enum MetadataPartAttribute: CodableAttributedStringKey {
-            public enum MetadataPart: Int, Codable, Sendable {
+        public nonisolated enum MetadataPartAttribute: CodableAttributedStringKey, Sendable {
+            public nonisolated enum MetadataPart: Int, Codable, Sendable {
                 case metadata
                 case groupSeparator
             }
 
-            public static let name: String = "semver.meta"
+            public nonisolated static let name: String = "semver.meta"
 
             public typealias Value = Self.MetadataPart
         }

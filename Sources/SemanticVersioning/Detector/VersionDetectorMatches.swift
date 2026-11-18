@@ -2,11 +2,11 @@
 //  Created by Vitali Kurlovich on 19.03.26.
 //
 
-public struct VersionDetector {
+public nonisolated struct VersionDetector: Sendable {
     public init() {}
 }
 
-public struct VersionDetectorMatches: Sequence {
+public nonisolated struct VersionDetectorMatches: Sequence, Sendable {
     public typealias Element = VersionDetectorResult
 
     let string: Substring
@@ -21,14 +21,14 @@ public struct VersionDetectorMatches: Sequence {
     }
 }
 
-extension VersionDetectorMatches {
+nonisolated extension VersionDetectorMatches {
     init(_ string: String) {
         let range = string.startIndex ..< string.endIndex
         self.init(string[range])
     }
 }
 
-public extension VersionDetectorMatches {
+public nonisolated extension VersionDetectorMatches {
     struct Iterator: IteratorProtocol {
         let string: Substring
 

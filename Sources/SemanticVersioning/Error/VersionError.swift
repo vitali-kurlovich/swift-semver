@@ -2,11 +2,11 @@
 //  Created by Vitali Kurlovich on 13.03.26.
 //
 
-public enum VersionError: Error {
+public nonisolated enum VersionError: Error, Sendable {
     case invalidFormat
 }
 
-extension VersionError: CustomStringConvertible {
+nonisolated extension VersionError: CustomStringConvertible {
     public var description: String {
         switch self {
         case .invalidFormat:

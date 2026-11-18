@@ -2,7 +2,7 @@
 //  Created by Vitali Kurlovich on 13.03.26.
 //
 
-extension VersionParser {
+nonisolated extension VersionParser {
     typealias VersionCore = Version.VersionCore
 
     func parseCoreVersion(_ string: String) throws(VersionError) -> VersionCore {

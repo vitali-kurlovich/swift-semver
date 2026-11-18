@@ -4,7 +4,7 @@
 
  for more info read [Semantic Versioning](https://semver.org/)
  */
-public struct Version: Hashable, Sendable {
+public nonisolated struct Version: Hashable, Sendable {
     public let core: VersionCore
     public let prerelease: PreRelease?
     public let metadata: Metadata?
@@ -19,7 +19,7 @@ public struct Version: Hashable, Sendable {
     }
 }
 
-public extension Version {
+public nonisolated extension Version {
     init(major: UInt64, minor: UInt64, patch: UInt64,
          prerelease: PreRelease? = nil,
          metadata: Metadata? = nil)
@@ -30,7 +30,7 @@ public extension Version {
     }
 }
 
-public extension Version {
+public nonisolated extension Version {
     init(_ string: String) throws(VersionError) {
         let parser = VersionParser()
         self = try parser.parse(string)
@@ -42,7 +42,7 @@ public extension Version {
     }
 }
 
-public extension Version {
+public nonisolated extension Version {
     /// Version core MAJOR part
     var major: UInt64 {
         core.major
@@ -59,7 +59,7 @@ public extension Version {
     }
 }
 
-extension Version: Comparable {
+nonisolated extension Version: Comparable {
     public static func < (lhs: Version, rhs: Version) -> Bool {
         guard lhs.core == rhs.core else {
             return lhs.core < rhs.core
@@ -78,14 +78,14 @@ extension Version: Comparable {
     }
 }
 
-extension Version: CustomStringConvertible {
+nonisolated extension Version: CustomStringConvertible {
     public var description: String {
         let converter = VersionString()
         return converter.string(from: self)
     }
 }
 
-extension Version: Encodable {
+nonisolated extension Version: Encodable {
     public func encode(to encoder: any Encoder) throws {
         var container = encoder.singleValueContainer()
         let converter = VersionString()
@@ -94,7 +94,7 @@ extension Version: Encodable {
     }
 }
 
-extension Version: Decodable {
+nonisolated extension Version: Decodable {
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
         let string = try container.decode(String.self)

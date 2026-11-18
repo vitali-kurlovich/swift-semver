@@ -57,7 +57,7 @@ struct VersionDetectorTests {
         ("Begin 1.2.3-alpha+meta and 2.2.2-beta+rc end", ["1.2.3-alpha+meta", "2.2.2-beta+rc"]),
         ("Begin 1.2 end", []),
     ])
-    func matches(_ args: (String, [String])) throws {
+    func matches(_ args: (String, [String])) {
         let detector = VersionDetector()
 
         let result = detector.matches(in: args.0).map { result in
@@ -71,7 +71,7 @@ struct VersionDetectorTests {
         "Begin 1.3-alpha+meta end",
         "Begin 1.02.3-alpha+meta end",
     ])
-    func noMatches(_ string: String) throws {
+    func noMatches(_ string: String) {
         let detector = VersionDetector()
 
         #expect(detector.firstMatch(in: string) == nil)

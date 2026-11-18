@@ -2,7 +2,7 @@
 //  Created by Vitali Kurlovich on 15.03.26.
 //
 
-struct VersionString {
+nonisolated struct VersionString: Sendable {
     init() {}
 
     typealias VersionCore = Version.VersionCore
@@ -10,7 +10,7 @@ struct VersionString {
     typealias Metadata = Version.Metadata
 }
 
-extension VersionString {
+nonisolated extension VersionString {
     func string(from version: Version) -> String {
         string(core: version.core, prerelease: version.prerelease, metadata: version.metadata)
     }

@@ -2,7 +2,7 @@
 //  Created by Vitali Kurlovich on 19.03.26.
 //
 
-public extension VersionDetector {
+public nonisolated extension VersionDetector {
     func matches(in string: String) -> VersionDetectorMatches {
         let range = string.startIndex ..< string.endIndex
         return matches(in: string[range])
@@ -13,7 +13,7 @@ public extension VersionDetector {
     }
 }
 
-public extension VersionDetector {
+public nonisolated extension VersionDetector {
     func firstMatch(in string: String) -> VersionDetectorResult? {
         let range = string.startIndex ..< string.endIndex
         return firstMatch(in: string[range])

@@ -5,13 +5,13 @@
 import Foundation
 
 public extension VersionFormatStyle {
-    /// An attributed format style based on the ``VersionFormatStyle``
-    ///
-    /// Use this modifier to create a ``VersionFormatStyle/Attributed`` instance, which formats values as AttributedString instances. These attributed strings contain attributes from the ``Foundation/AttributeScopes/SemanticVersioningAttributes`` attribute scope. Use these attributes to determine which runs of the attributed string represent different parts of the formatted value.
-    ///
-    /// The following example finds runs of the attributed string that represent different parts of a formatted ``Version``, and adds additional attributes like foregroundColor and inlinePresentationIntent.
-    ///
-    /**
+    // An attributed format style based on the ``VersionFormatStyle``
+    //
+    // Use this modifier to create a ``VersionFormatStyle/Attributed`` instance, which formats values as AttributedString instances. These attributed strings contain attributes from the ``Foundation/AttributeScopes/SemanticVersioningAttributes`` attribute scope. Use these attributes to determine which runs of the attributed string represent different parts of the formatted value.
+    //
+    // The following example finds runs of the attributed string that represent different parts of a formatted ``Version``, and adds additional attributes like foregroundColor and inlinePresentationIntent.
+    //
+    /* 
      ```swift
      func attributedVersion(_ version: Version) -> AttributedString {
          var string = version.formatted(.full.attributed)

@@ -6,7 +6,7 @@ import Foundation
 
 public extension Version {
     /// Format ``Version`` using style
-    func formatted<S>(_ style: S) -> S.FormatOutput where Self == S.FormatInput, S: FormatStyle {
+    func formatted<S: FormatStyle>(_ style: S) -> S.FormatOutput where Self == S.FormatInput {
         style.format(self)
     }
 }

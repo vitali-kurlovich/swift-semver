@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D222F8B2F6D8A9000257E69 /* SemanticVersioning in Frameworks */ = {isa = PBXBuildFile; productRef = 5D222F8A2F6D8A9000257E69 /* SemanticVersioning */; };
+		5431999230ADEDEF0092BC1C /* SemanticVersioning in Frameworks */ = {isa = PBXBuildFile; productRef = 5431999130ADEDEF0092BC1C /* SemanticVersioning */; };
 		5DAB66782F699F49004CEA8F /* SemanticVersioning in Frameworks */ = {isa = PBXBuildFile; productRef = 5DAB66772F699F49004CEA8F /* SemanticVersioning */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D222F8B2F6D8A9000257E69 /* SemanticVersioning in Frameworks */,
+				5431999230ADEDEF0092BC1C /* SemanticVersioning in Frameworks */,
 				5DAB66782F699F49004CEA8F /* SemanticVersioning in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,7 +73,7 @@
 			name = SemVerExample;
 			packageProductDependencies = (
 				5DAB66772F699F49004CEA8F /* SemanticVersioning */,
-				5D222F8A2F6D8A9000257E69 /* SemanticVersioning */,
+				5431999130ADEDEF0092BC1C /* SemanticVersioning */,
 			);
 			productName = SemVerExample;
 			productReference = 5DAB66552F699ED5004CEA8F /* SemVerExample.app */;
@@ -87,7 +87,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2630;
-				LastUpgradeCheck = 2630;
+				LastUpgradeCheck = 2720;
 				TargetAttributes = {
 					5DAB66542F699ED4004CEA8F = {
 						CreatedOnToolsVersion = 26.3;
@@ -104,7 +104,7 @@
 			mainGroup = 5DAB664C2F699ED4004CEA8F;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				5D222F892F6D8A9000257E69 /* XCRemoteSwiftPackageReference "swift-semver" */,
+				5431999030ADEDEF0092BC1C /* XCLocalSwiftPackageReference "../../swift-semver" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5DAB66562F699ED5004CEA8F /* Products */;
@@ -171,6 +171,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -193,6 +194,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -232,6 +234,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -247,6 +250,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
@@ -258,6 +262,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -287,7 +292,7 @@
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				XROS_DEPLOYMENT_TARGET = 26.2;
 			};
@@ -300,6 +305,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -329,7 +335,7 @@
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				XROS_DEPLOYMENT_TARGET = 26.2;
 			};
@@ -358,21 +364,16 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		5D222F892F6D8A9000257E69 /* XCRemoteSwiftPackageReference "swift-semver" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/vitali-kurlovich/swift-semver";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.4.0;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		5431999030ADEDEF0092BC1C /* XCLocalSwiftPackageReference "../../swift-semver" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../swift-semver";
 		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5D222F8A2F6D8A9000257E69 /* SemanticVersioning */ = {
+		5431999130ADEDEF0092BC1C /* SemanticVersioning */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5D222F892F6D8A9000257E69 /* XCRemoteSwiftPackageReference "swift-semver" */;
 			productName = SemanticVersioning;
 		};
 		5DAB66772F699F49004CEA8F /* SemanticVersioning */ = {

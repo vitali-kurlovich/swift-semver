@@ -2,7 +2,7 @@
 //  Created by Vitali Kurlovich on 13.03.26.
 //
 
-extension VersionParser {
+nonisolated extension VersionParser {
     @inlinable
     func parse(_ string: String) throws(VersionError) -> Version {
         let range = string.startIndex ..< string.endIndex

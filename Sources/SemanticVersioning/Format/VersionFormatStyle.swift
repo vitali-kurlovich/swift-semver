@@ -95,17 +95,32 @@ public extension VersionFormatStyle {
 
 public extension VersionFormatStyle.Options {
     /// Display core-version
-    static var coreVersion: Self { VersionFormatStyle.Options(rawValue: 1 << 0) }
+    static var coreVersion: Self {
+        VersionFormatStyle.Options(rawValue: 1 << 0)
+    }
+
     /// Display pre-release
-    static var preRelease: Self { VersionFormatStyle.Options(rawValue: 1 << 1) }
+    static var preRelease: Self {
+        VersionFormatStyle.Options(rawValue: 1 << 1)
+    }
+
     /// Display metadata
-    static var metadata: Self { VersionFormatStyle.Options(rawValue: 1 << 2) }
+    static var metadata: Self {
+        VersionFormatStyle.Options(rawValue: 1 << 2)
+    }
 
     /// Display core-version, pre-release, and metadata
-    static var full: Self { [.coreVersion, .preRelease, .metadata] }
+    static var full: Self {
+        [.coreVersion, .preRelease, .metadata]
+    }
 
     /// Display core-version, and  pre-release
-    static var medium: Self { [.coreVersion, .preRelease] }
+    static var medium: Self {
+        [.coreVersion, .preRelease]
+    }
+
     /// Display core-version only
-    static var short: Self { [.coreVersion] }
+    static var short: Self {
+        [.coreVersion]
+    }
 }

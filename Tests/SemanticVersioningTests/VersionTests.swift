@@ -7,7 +7,7 @@ struct VersionTests {}
 
 extension VersionTests {
     @Test("Accessors")
-    func accessors() throws {
+    func accessors() {
         let ver = Version(major: 1, minor: 2, patch: 3)
         #expect(ver.major == 1)
         #expect(ver.minor == 2)

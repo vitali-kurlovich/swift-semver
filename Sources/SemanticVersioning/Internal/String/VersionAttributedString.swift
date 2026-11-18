@@ -4,7 +4,7 @@
 
 import Foundation
 
-struct VersionAttributedString {
+nonisolated struct VersionAttributedString: Sendable {
     init() {}
 
     typealias VersionCore = Version.VersionCore
@@ -21,7 +21,7 @@ extension VersionAttributedString {
     typealias MetadataPartAttribute = AttributeScopes.SemanticVersioningAttributes.MetadataPartAttribute
 }
 
-extension VersionAttributedString {
+nonisolated extension VersionAttributedString {
     func string(from version: Version) -> AttributedString {
         string(core: version.core, prerelease: version.prerelease, metadata: version.metadata)
     }
@@ -53,7 +53,7 @@ extension VersionAttributedString {
     }
 }
 
-extension VersionAttributedString {
+nonisolated extension VersionAttributedString {
     func string(from version: VersionCore) -> AttributedString {
         let separator = coreGroupSeparator
 
@@ -109,7 +109,7 @@ private extension VersionAttributedString {
     }
 }
 
-extension VersionAttributedString {
+nonisolated extension VersionAttributedString {
     func string(from release: PreRelease, includeSeparator: Bool) -> AttributedString {
         var attributes = AttributeContainer()
         attributes[PreReleasePartAttribute.self] = .preRelease
@@ -124,7 +124,7 @@ extension VersionAttributedString {
     }
 }
 
-extension VersionAttributedString {
+nonisolated extension VersionAttributedString {
     func string(from meta: Metadata, includeSeparator: Bool) -> AttributedString {
         var attributes = AttributeContainer()
         attributes[MetadataPartAttribute.self] = .metadata

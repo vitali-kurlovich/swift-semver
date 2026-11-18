@@ -2,11 +2,11 @@
 //  Created by Vitali Kurlovich on 13.03.26.
 //
 
-public extension Version {
+public nonisolated extension Version {
     /// A version number in MAJOR.MINOR.PATCH format
     ///
     /// for more info read [Semantic Versioning](https://semver.org/)
-    struct VersionCore: Hashable, Sendable {
+    nonisolated struct VersionCore: Hashable, Sendable {
         public let major: UInt64
         public let minor: UInt64
         public let patch: UInt64
@@ -19,7 +19,7 @@ public extension Version {
     }
 }
 
-extension Version.VersionCore: Comparable {
+nonisolated extension Version.VersionCore: Comparable {
     public static func < (lhs: Self, rhs: Self) -> Bool {
         if lhs.major < rhs.major {
             return true
@@ -37,13 +37,13 @@ extension Version.VersionCore: Comparable {
     }
 }
 
-extension Version.VersionCore: CustomStringConvertible {
+nonisolated extension Version.VersionCore: CustomStringConvertible {
     public var description: String {
         formatted()
     }
 }
 
-public extension Version.VersionCore {
+public nonisolated extension Version.VersionCore {
     init(_ string: String) throws(VersionError) {
         let parser = VersionParser()
         self = try parser.parseCoreVersion(string)

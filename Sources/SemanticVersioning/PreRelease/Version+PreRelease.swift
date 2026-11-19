@@ -19,7 +19,7 @@ public nonisolated extension Version.PreRelease {
 }
 
 nonisolated extension Version.PreRelease: Comparable {
-    public static func < (lhs: Self, rhs: Self) -> Bool {
+    public static func < (lhs: borrowing Self, rhs: borrowing Self) -> Bool {
         lhs.value.compare(rhs.value, options: [.numeric]) == .orderedAscending
     }
 }

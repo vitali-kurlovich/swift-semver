@@ -1,4 +1,3 @@
-
 /**
  Version number
 
@@ -59,8 +58,22 @@ public nonisolated extension Version {
     }
 }
 
+nonisolated extension Version: Equatable {
+    public static func == (lhs: borrowing Self, rhs: borrowing Self) -> Bool {
+        lhs.core == rhs.core && lhs.prerelease == rhs.prerelease
+    }
+}
+
 nonisolated extension Version: Comparable {
-    public static func < (lhs: Version, rhs: Version) -> Bool {
+    public static func > (lhs: borrowing Self, rhs: borrowing Self) -> Bool {
+        if lhs == rhs && lhs.metadata == rhs.metadata {
+            return false
+        } else {
+            return (lhs < rhs) == false
+        }
+    }
+
+    public static func < (lhs: borrowing Self, rhs: borrowing Self) -> Bool {
         guard lhs.core == rhs.core else {
             return lhs.core < rhs.core
         }
@@ -71,7 +84,25 @@ nonisolated extension Version: Comparable {
         case (.none, .some):
             return false
         case (.none, .none):
+            break
+        case let (.some(left), .some(right)):
+            if left == right {
+                break
+            }
+
+            return left < right
+        }
+
+        switch (lhs.metadata, rhs.metadata) {
+        case (.none, .none):
             return false
+
+        case (.some, .none):
+            return false
+
+        case (.none, .some):
+            return true
+
         case let (.some(left), .some(right)):
             return left < right
         }

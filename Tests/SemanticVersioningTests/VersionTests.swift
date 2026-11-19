@@ -199,6 +199,29 @@ extension VersionTests {
         #expect((right < left) == false)
         #expect((right == left) == false)
     }
+
+    @Test("Compare+Meta", arguments: [
+        ("1.0.0", "1.0.0+meta"),
+
+        ("1.0.0+meta.1", "1.0.0+meta.10"),
+        ("1.0.0+meta.10", "1.0.0+meta.11"),
+        ("1.0.0-beta.2", "1.0.0-beta.2+meta"),
+        ("1.0.0-beta.2+meta.9", "1.0.0-beta.2+meta.10"),
+
+    ])
+    func compareMeta(_ args: (String, String)) throws {
+        let left = try Version(args.0)
+        let right = try Version(args.1)
+
+        #expect(left < right)
+        #expect(right > left)
+
+        #expect((left > right) == false)
+        #expect((left == right) == true)
+
+        #expect((right < left) == false)
+        #expect((right == left) == true)
+    }
 }
 
 extension VersionTests {

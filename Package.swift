@@ -29,5 +29,6 @@ let package = Package(
             name: "SemanticVersioningTests",
             dependencies: ["SemanticVersioning"]
         ),
-    ]
+    ],
+    swiftLanguageModes: [.v6]
 )

@@ -20,7 +20,7 @@ public nonisolated extension Version {
 }
 
 nonisolated extension Version.VersionCore: Comparable {
-    public static func < (lhs: Self, rhs: Self) -> Bool {
+    public static func < (lhs: borrowing Self, rhs: borrowing Self) -> Bool {
         if lhs.major < rhs.major {
             return true
         } else if lhs.major > rhs.major {

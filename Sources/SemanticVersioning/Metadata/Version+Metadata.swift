@@ -18,6 +18,12 @@ public nonisolated extension Version.Metadata {
     }
 }
 
+nonisolated extension Version.Metadata: Comparable {
+    public static func < (lhs: borrowing Self, rhs: borrowing Self) -> Bool {
+        lhs.value.compare(rhs.value, options: [.numeric]) == .orderedAscending
+    }
+}
+
 nonisolated extension Version.Metadata: CustomStringConvertible {
     public var description: String {
         formatted()
